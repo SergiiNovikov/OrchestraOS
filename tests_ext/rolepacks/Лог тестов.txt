@@ -1,0 +1,605 @@
+(base) PS D:\Huawei Share\reference-implementation-v0> pytest -q tests_ext/rolepacks/test_intent_interpreter_v1_tz.py
+FFFFFFFFFFF                                                                                                      [100%]
+====================================================== FAILURES =======================================================
+________________________________ test_intent_interpreter_golden[What is OrchestraOS?] _________________________________
+
+text = 'What is OrchestraOS?'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+______________________________ test_intent_interpreter_golden[Explain the architecture] _______________________________
+
+text = 'Explain the architecture'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+___________________________________ test_intent_interpreter_golden[Generate a plan] ___________________________________
+
+text = 'Generate a plan'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+_________________________________ test_intent_interpreter_golden[Fix determinism bug] _________________________________
+
+text = 'Fix determinism bug'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+_________________________________ test_intent_interpreter_golden[Translate this text] _________________________________
+
+text = 'Translate this text'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+______________________________ test_intent_interpreter_golden[Why does validation fail?] ______________________________
+
+text = 'Why does validation fail?'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+_______________________________ test_intent_interpreter_golden[Summarize this document] _______________________________
+
+text = 'Summarize this document'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+_______________________________ test_intent_interpreter_golden[How to add a rolepack?] ________________________________
+
+text = 'How to add a rolepack?'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+________________________________ test_intent_interpreter_golden[Describe Milestone 1] _________________________________
+
+text = 'Describe Milestone 1'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+_________________________________ test_intent_interpreter_golden[What happens next?] __________________________________
+
+text = 'What happens next?'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "What is OrchestraOS?",
+            "Explain the architecture",
+            "Generate a plan",
+            "Fix determinism bug",
+            "Translate this text",
+            "Why does validation fail?",
+            "Summarize this document",
+            "How to add a rolepack?",
+            "Describe Milestone 1",
+            "What happens next?",
+        ],
+    )
+    def test_intent_interpreter_golden(text: str) -> None:
+        scoped = make_scoped_request(text)
+
+>       out = intent_interpreter(artifact=scoped)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:65:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+_______________________________________ test_intent_interpreter_determinism_n3 ________________________________________
+
+    def test_intent_interpreter_determinism_n3() -> None:
+        scoped = make_scoped_request("How does determinism work?")
+
+>       out1 = intent_interpreter(artifact=scoped)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests_ext\rolepacks\test_intent_interpreter_v1_tz.py:76:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+extensions\rolepacks\v1_tz\intent_interpreter.py:39: in intent_interpreter
+    validate_artifact_v0(
+validation\schemas.py:150: in validate_artifact_v0
+    validators = _load_validators_v0()
+                 ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _load_validators_v0() -> Dict[str, ValidatorFn]:
+        """
+        Lazy-import validators from artifacts/*_v0.py.
+
+        Why lazy:
+        - Allows building repo incrementally (schemas registry first, then artifacts).
+        - Avoids import errors before artifacts modules exist.
+
+        Contract:
+        - Each artifacts/*_v0.py MUST expose validate_<artifact>_v0(obj: Any) -> None
+        """
+        validators: Dict[str, ValidatorFn] = {}
+
+        # Import inside function to keep module import-safe during incremental build.
+        from artifacts.request_envelope_v0 import validate_request_envelope_v0
+        from artifacts.scoped_request_v0 import validate_scoped_request_v0
+        from artifacts.intent_package_v0 import validate_intent_package_v0
+>       from artifacts.task_graph_v0 import validate_task_graph_v0
+E       ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+
+validation\schemas.py:120: ModuleNotFoundError
+=============================================== short test summary info ===============================================
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[What is OrchestraOS?] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[Explain the architecture] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[Generate a plan] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[Fix determinism bug] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[Translate this text] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[Why does validation fail?] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[Summarize this document] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[How to add a rolepack?] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[Describe Milestone 1] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_golden[What happens next?] - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+FAILED tests_ext/rolepacks/test_intent_interpreter_v1_tz.py::test_intent_interpreter_determinism_n3 - ModuleNotFoundError: No module named 'artifacts.task_graph_v0'
+11 failed in 0.24s
+(base) PS D:\Huawei Share\reference-implementation-v0>
