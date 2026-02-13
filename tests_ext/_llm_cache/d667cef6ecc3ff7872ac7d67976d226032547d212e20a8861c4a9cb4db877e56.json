@@ -1,0 +1,24 @@
+
+{
+  "schema_version": "architect_llm_record_v1",
+  "policy_version": "m17_architect_v1",
+  "key": "d667cef6ecc3ff7872ac7d67976d226032547d212e20a8861c4a9cb4db877e56",
+  "mode": "record",
+  "provider": "mock",
+  "prompt": "dummy",
+  "raw_completion": "{\"schema_version\":\"architect_output_v1\",\"title\":\"Virtual Accountant Spec\",\"overview\":\"LLM-produced overview\",\"users\":[\"Enterprise accounting team\"],\"scope_in\":[],\"scope_out\":[],\"success_criteria\":[\"Batch invoices -> accounting entries\"],\"constraints\":[\"Minimal budget\"],\"assumptions\":[],\"open_questions\":[],\"acceptance_criteria\":[\"AC1: Given a batch of invoices, system outputs accounting entries\"],\"definition_of_done\":[\"DoD1: Spec created\"]}",
+  "parsed_json": {
+    "schema_version": "architect_output_v1",
+    "title": "Virtual Accountant Spec",
+    "overview": "LLM-produced overview",
+    "users": ["Enterprise accounting team"],
+    "scope_in": [],
+    "scope_out": [],
+    "success_criteria": ["Batch invoices -> accounting entries"],
+    "constraints": ["Minimal budget"],
+    "assumptions": [],
+    "open_questions": [],
+    "acceptance_criteria": ["AC1: Given a batch of invoices, system outputs accounting entries"],
+    "definition_of_done": ["DoD1: Spec created"]
+  }
+}

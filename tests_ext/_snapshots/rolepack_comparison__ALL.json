@@ -1,0 +1,4114 @@
+{
+  "snapshot_kind": "rolepack_comparison_aggregated",
+  "rolepacks": [
+    "v1_tz",
+    "v1_rules",
+    "v1_llm"
+  ],
+  "inputs": [
+    {
+      "text": "hello",
+      "key": "hello",
+      "records": [
+        {
+          "rolepack": "v1_tz",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_afb1c04f",
+                "req_id": "req_afb1c04f",
+                "trace_id": "trace_afb1c04f"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_afb1c04f",
+                      "req_id": "req_afb1c04f",
+                      "task_id": "t1",
+                      "trace_id": "trace_afb1c04f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Understand the request and constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_afb1c04f",
+                      "req_id": "req_afb1c04f",
+                      "task_id": "t2",
+                      "trace_id": "trace_afb1c04f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce the minimal useful output that satisfies the request.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                  "output_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "output_hash": "5b7b62146d842fd16e923048c37758cbe94e779a4310ab850252697f8a236953",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "5b7b62146d842fd16e923048c37758cbe94e779a4310ab850252697f8a236953",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "5b7b62146d842fd16e923048c37758cbe94e779a4310ab850252697f8a236953",
+                  "output_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "output_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "output_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "output_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a"
+              },
+              "run_identity": {
+                "determinism_key": "feebd89127648ad87583869878b44dd28dcdb269c8230c2301a6f31f728ca0f0",
+                "run_id": "run_feebd89127648ad8",
+                "trace_id": "trace_afb1c04f"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_rules",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_afb1c04f",
+                "req_id": "req_afb1c04f",
+                "trace_id": "trace_afb1c04f"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_afb1c04f",
+                      "req_id": "req_afb1c04f",
+                      "task_id": "t1",
+                      "trace_id": "trace_afb1c04f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Understand the request and constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_afb1c04f",
+                      "req_id": "req_afb1c04f",
+                      "task_id": "t2",
+                      "trace_id": "trace_afb1c04f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce the minimal useful output that satisfies the request.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                  "output_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "output_hash": "3da7efeaeb6c929ad0df339405c72b255a5253042733d865657e5d385854a401",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "3da7efeaeb6c929ad0df339405c72b255a5253042733d865657e5d385854a401",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "3da7efeaeb6c929ad0df339405c72b255a5253042733d865657e5d385854a401",
+                  "output_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "output_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "output_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "output_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a"
+              },
+              "run_identity": {
+                "determinism_key": "feebd89127648ad87583869878b44dd28dcdb269c8230c2301a6f31f728ca0f0",
+                "run_id": "run_feebd89127648ad8",
+                "trace_id": "trace_afb1c04f"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_llm",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_afb1c04f",
+                "req_id": "req_afb1c04f",
+                "trace_id": "trace_afb1c04f"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_afb1c04f",
+                      "req_id": "req_afb1c04f",
+                      "task_id": "t1",
+                      "trace_id": "trace_afb1c04f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Understand the request and constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_afb1c04f",
+                      "req_id": "req_afb1c04f",
+                      "task_id": "t2",
+                      "trace_id": "trace_afb1c04f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce the minimal useful output that satisfies the request.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                  "output_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+                  "output_hash": "3224a05142978d1b3832e59b9177713f45ed77a949759229f5e16f6263037894",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "3224a05142978d1b3832e59b9177713f45ed77a949759229f5e16f6263037894",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "3224a05142978d1b3832e59b9177713f45ed77a949759229f5e16f6263037894",
+                  "output_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+                  "output_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+                  "output_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+                  "output_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a"
+              },
+              "run_identity": {
+                "determinism_key": "feebd89127648ad87583869878b44dd28dcdb269c8230c2301a6f31f728ca0f0",
+                "run_id": "run_feebd89127648ad8",
+                "trace_id": "trace_afb1c04f"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "How does determinism work?",
+      "key": "how_does_determinism_work",
+      "records": [
+        {
+          "rolepack": "v1_tz",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_c20f0efe",
+                "req_id": "req_c20f0efe",
+                "trace_id": "trace_c20f0efe"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_c20f0efe",
+                      "req_id": "req_c20f0efe",
+                      "task_id": "t1",
+                      "trace_id": "trace_c20f0efe"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Identify what the user is asking and required context.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_c20f0efe",
+                      "req_id": "req_c20f0efe",
+                      "task_id": "t2",
+                      "trace_id": "trace_c20f0efe"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce an accurate answer grounded in the provided context/spec.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                  "output_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "output_hash": "0385429ffe6ae5ed1d4e5eefd5dc45341305f143611c40b313f429d601d3193c",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "0385429ffe6ae5ed1d4e5eefd5dc45341305f143611c40b313f429d601d3193c",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "0385429ffe6ae5ed1d4e5eefd5dc45341305f143611c40b313f429d601d3193c",
+                  "output_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "output_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "output_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "output_hash": "d1cf6d5a7dc8c757d2d2865697efb3498339160763e0dfb6ca5d80332dadf660",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "d1cf6d5a7dc8c757d2d2865697efb3498339160763e0dfb6ca5d80332dadf660",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397"
+              },
+              "run_identity": {
+                "determinism_key": "280c420db7d3cac905b40a5ec9c16c8d498ad6e7c02dbf8cdaa415068fa87c74",
+                "run_id": "run_280c420db7d3cac9",
+                "trace_id": "trace_c20f0efe"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_rules",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_c20f0efe",
+                "req_id": "req_c20f0efe",
+                "trace_id": "trace_c20f0efe"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_c20f0efe",
+                      "req_id": "req_c20f0efe",
+                      "task_id": "t1",
+                      "trace_id": "trace_c20f0efe"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Identify what the user is asking and required context.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_c20f0efe",
+                      "req_id": "req_c20f0efe",
+                      "task_id": "t2",
+                      "trace_id": "trace_c20f0efe"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce an accurate answer grounded in the provided context/spec.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                  "output_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "output_hash": "4e1c6b0e695f53c90616b038224e963b876f64d5704b575ddbad6328c8c2dbc7",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4e1c6b0e695f53c90616b038224e963b876f64d5704b575ddbad6328c8c2dbc7",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4e1c6b0e695f53c90616b038224e963b876f64d5704b575ddbad6328c8c2dbc7",
+                  "output_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "output_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "output_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "output_hash": "d1cf6d5a7dc8c757d2d2865697efb3498339160763e0dfb6ca5d80332dadf660",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "d1cf6d5a7dc8c757d2d2865697efb3498339160763e0dfb6ca5d80332dadf660",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397"
+              },
+              "run_identity": {
+                "determinism_key": "280c420db7d3cac905b40a5ec9c16c8d498ad6e7c02dbf8cdaa415068fa87c74",
+                "run_id": "run_280c420db7d3cac9",
+                "trace_id": "trace_c20f0efe"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_llm",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_c20f0efe",
+                "req_id": "req_c20f0efe",
+                "trace_id": "trace_c20f0efe"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_c20f0efe",
+                      "req_id": "req_c20f0efe",
+                      "task_id": "t1",
+                      "trace_id": "trace_c20f0efe"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Identify what the user is asking and required context.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_c20f0efe",
+                      "req_id": "req_c20f0efe",
+                      "task_id": "t2",
+                      "trace_id": "trace_c20f0efe"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce an accurate answer grounded in the provided context/spec.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                  "output_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4deb9c1bea7f45d9a2b421ed83f49e5be02041f2637cba81a8a0a1dbeaa38962",
+                  "output_hash": "988bf5f3145892a098442a539710f382f6e14070d276719d5f39a24b2d656fbc",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "988bf5f3145892a098442a539710f382f6e14070d276719d5f39a24b2d656fbc",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "988bf5f3145892a098442a539710f382f6e14070d276719d5f39a24b2d656fbc",
+                  "output_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "9abd368b0ab7443ecf9404397c20a3ab0098867db50a61fb6f58010a9c7434ed",
+                  "output_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d1690b55954ea4650fa9789c562c3800b612360e0db4a889b6bdf8f78b84ccb4",
+                  "output_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "70a36e5e4cc14ffcfc4e8dede1f94c0ffe66e7fc0ebe10104e8ad9eaeb239b6a",
+                  "output_hash": "d1cf6d5a7dc8c757d2d2865697efb3498339160763e0dfb6ca5d80332dadf660",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "d1cf6d5a7dc8c757d2d2865697efb3498339160763e0dfb6ca5d80332dadf660",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "e04ed043799e23731c70391073569fcaceb159d953af0b5af38cd0e6943bb397"
+              },
+              "run_identity": {
+                "determinism_key": "280c420db7d3cac905b40a5ec9c16c8d498ad6e7c02dbf8cdaa415068fa87c74",
+                "run_id": "run_280c420db7d3cac9",
+                "trace_id": "trace_c20f0efe"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "Make a plan for Milestone 7",
+      "key": "make_a_plan_for_milestone_7",
+      "records": [
+        {
+          "rolepack": "v1_tz",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_e3f28642",
+                "req_id": "req_e3f28642",
+                "trace_id": "trace_e3f28642"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t1",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t1: Extract the goal and constraints for the requested plan.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t2",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t2: Draft a minimal actionable plan (1–3 steps) matching constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t3",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add test/validation checkpoints and deterministic acceptance criteria.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                  "output_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "output_hash": "8208b6e20b7339154491c7325fd88b2dd1a47f66b13eaaaecb390944eb6d83a7",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "8208b6e20b7339154491c7325fd88b2dd1a47f66b13eaaaecb390944eb6d83a7",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "8208b6e20b7339154491c7325fd88b2dd1a47f66b13eaaaecb390944eb6d83a7",
+                  "output_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "output_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "output_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "output_hash": "ae9bce692f6ca390a6be6018b65fc52502cd14fa5c1cf6dd45ad8db0505d8284",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "ae9bce692f6ca390a6be6018b65fc52502cd14fa5c1cf6dd45ad8db0505d8284",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d"
+              },
+              "run_identity": {
+                "determinism_key": "1d34005327f25f9f1e2184b5a2f08e1279f455f8d1a3309245e34ae4d818af2c",
+                "run_id": "run_1d34005327f25f9f",
+                "trace_id": "trace_e3f28642"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_rules",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_e3f28642",
+                "req_id": "req_e3f28642",
+                "trace_id": "trace_e3f28642"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t1",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t1: Extract the goal and constraints for the requested plan.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t2",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t2: Draft a minimal actionable plan (1–3 steps) matching constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t3",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add test/validation checkpoints and deterministic acceptance criteria.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                  "output_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "output_hash": "4c0ef9d83e72f70e913b9c3689904ff55c5836ff45746aceb633462fe82fe5ab",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4c0ef9d83e72f70e913b9c3689904ff55c5836ff45746aceb633462fe82fe5ab",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4c0ef9d83e72f70e913b9c3689904ff55c5836ff45746aceb633462fe82fe5ab",
+                  "output_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "output_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "output_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "output_hash": "ae9bce692f6ca390a6be6018b65fc52502cd14fa5c1cf6dd45ad8db0505d8284",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "ae9bce692f6ca390a6be6018b65fc52502cd14fa5c1cf6dd45ad8db0505d8284",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d"
+              },
+              "run_identity": {
+                "determinism_key": "1d34005327f25f9f1e2184b5a2f08e1279f455f8d1a3309245e34ae4d818af2c",
+                "run_id": "run_1d34005327f25f9f",
+                "trace_id": "trace_e3f28642"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_llm",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_e3f28642",
+                "req_id": "req_e3f28642",
+                "trace_id": "trace_e3f28642"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t1",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t1: Extract the goal and constraints for the requested plan.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t2",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t2: Draft a minimal actionable plan (1–3 steps) matching constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_e3f28642",
+                      "req_id": "req_e3f28642",
+                      "task_id": "t3",
+                      "trace_id": "trace_e3f28642"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add test/validation checkpoints and deterministic acceptance criteria.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                  "output_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "68e4cfeb440d3545efebfa68939a471271f406e06d69ef6e4d30bb56600a54a4",
+                  "output_hash": "aed91f8b80b5d5e06596b50bf6029c8397d43e4733ee09e125668f268e217dea",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "aed91f8b80b5d5e06596b50bf6029c8397d43e4733ee09e125668f268e217dea",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "aed91f8b80b5d5e06596b50bf6029c8397d43e4733ee09e125668f268e217dea",
+                  "output_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "05800bdd2cd89f00850a068792ffc4c4b37761aad0471e13a19c75c490c0f940",
+                  "output_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "fa48ae7fce538d50a14086b4240038bea42286f1999bf2ab7533de020d55e59f",
+                  "output_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "7f889cefa886650ac102625cace4c7bf7dabaf329c89be41b5b4e0d58226471b",
+                  "output_hash": "ae9bce692f6ca390a6be6018b65fc52502cd14fa5c1cf6dd45ad8db0505d8284",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "ae9bce692f6ca390a6be6018b65fc52502cd14fa5c1cf6dd45ad8db0505d8284",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "d6138a64f52d9b26d34e0071a05be38c5868dc7baa136101ec067503ac01069d"
+              },
+              "run_identity": {
+                "determinism_key": "1d34005327f25f9f1e2184b5a2f08e1279f455f8d1a3309245e34ae4d818af2c",
+                "run_id": "run_1d34005327f25f9f",
+                "trace_id": "trace_e3f28642"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "Fix failing pytest tests",
+      "key": "fix_failing_pytest_tests",
+      "records": [
+        {
+          "rolepack": "v1_tz",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_954da49c",
+                "req_id": "req_954da49c",
+                "trace_id": "trace_954da49c"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t1",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t1: Determine required code changes within allowed directories only.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t2",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t2: Implement the minimal patch (fail-closed, deterministic).",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t3",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add/adjust tests in tests_ext to cover golden + determinism.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                  "output_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "output_hash": "7d4ba31215ba15b0e8785c2190cae3e22f753a471ee0d2b64775157f611deea0",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "7d4ba31215ba15b0e8785c2190cae3e22f753a471ee0d2b64775157f611deea0",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "7d4ba31215ba15b0e8785c2190cae3e22f753a471ee0d2b64775157f611deea0",
+                  "output_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "output_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "output_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "output_hash": "a836dee3c54ebf3ef9b3ca18a645b5da3d4e20f2d865afb62a74969baef1a221",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "a836dee3c54ebf3ef9b3ca18a645b5da3d4e20f2d865afb62a74969baef1a221",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44"
+              },
+              "run_identity": {
+                "determinism_key": "ce55685cb2e7720cfa5d44525227ca9c56d471627a1b26fbe074c63df0f07ba4",
+                "run_id": "run_ce55685cb2e7720c",
+                "trace_id": "trace_954da49c"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_rules",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_954da49c",
+                "req_id": "req_954da49c",
+                "trace_id": "trace_954da49c"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t1",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t1: Determine required code changes within allowed directories only.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t2",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t2: Implement the minimal patch (fail-closed, deterministic).",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t3",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add/adjust tests in tests_ext to cover golden + determinism.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                  "output_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "output_hash": "ee1ab0b05b7bb27b9243938d08f16aad5d7a202460492c3e09e12f73c820b10f",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "ee1ab0b05b7bb27b9243938d08f16aad5d7a202460492c3e09e12f73c820b10f",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "ee1ab0b05b7bb27b9243938d08f16aad5d7a202460492c3e09e12f73c820b10f",
+                  "output_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "output_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "output_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "output_hash": "a836dee3c54ebf3ef9b3ca18a645b5da3d4e20f2d865afb62a74969baef1a221",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "a836dee3c54ebf3ef9b3ca18a645b5da3d4e20f2d865afb62a74969baef1a221",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44"
+              },
+              "run_identity": {
+                "determinism_key": "ce55685cb2e7720cfa5d44525227ca9c56d471627a1b26fbe074c63df0f07ba4",
+                "run_id": "run_ce55685cb2e7720c",
+                "trace_id": "trace_954da49c"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_llm",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_954da49c",
+                "req_id": "req_954da49c",
+                "trace_id": "trace_954da49c"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t1",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t1: Determine required code changes within allowed directories only.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t2",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t2: Implement the minimal patch (fail-closed, deterministic).",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_954da49c",
+                      "req_id": "req_954da49c",
+                      "task_id": "t3",
+                      "trace_id": "trace_954da49c"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add/adjust tests in tests_ext to cover golden + determinism.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                  "output_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "4d16fa7db5212853facd1547e370da75fd7aa41f54754d3654a265b668f727a0",
+                  "output_hash": "35fa80183015bbe4d0ad0aa488fb8df609d1af0a3f805531e19408f925d5781c",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "35fa80183015bbe4d0ad0aa488fb8df609d1af0a3f805531e19408f925d5781c",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "35fa80183015bbe4d0ad0aa488fb8df609d1af0a3f805531e19408f925d5781c",
+                  "output_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "c3dbd3b5555a5bf0680c6f239cb0635f8f23ace15af25856f11c3de6c2be5f4d",
+                  "output_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "290f0abd93baebca18d13602acc64653082f8db3ea036c9d402241c243117de5",
+                  "output_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "3c37fe64035802d5c1bda59f8a0ecd7f409f05df742b6bca3e5a37f62c562371",
+                  "output_hash": "a836dee3c54ebf3ef9b3ca18a645b5da3d4e20f2d865afb62a74969baef1a221",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "a836dee3c54ebf3ef9b3ca18a645b5da3d4e20f2d865afb62a74969baef1a221",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "6da9f2a96a8f555ae70fd89dd0be92c1ae75acfc4b38da43b3f404829d1c1b44"
+              },
+              "run_identity": {
+                "determinism_key": "ce55685cb2e7720cfa5d44525227ca9c56d471627a1b26fbe074c63df0f07ba4",
+                "run_id": "run_ce55685cb2e7720c",
+                "trace_id": "trace_954da49c"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "Сделай план на 3 шага",
+      "key": "сделай_план_на_3_шага",
+      "records": [
+        {
+          "rolepack": "v1_tz",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_427798ef",
+                "req_id": "req_427798ef",
+                "trace_id": "trace_427798ef"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t1",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t1: Extract the goal and constraints for the requested plan.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t2",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t2: Draft a minimal actionable plan (1–3 steps) matching constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t3",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add test/validation checkpoints and deterministic acceptance criteria.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                  "output_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "output_hash": "14e3031bf82c36fc846a2526e18d575bb84f8ae2bffd79a0265e4a94a0f37292",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "14e3031bf82c36fc846a2526e18d575bb84f8ae2bffd79a0265e4a94a0f37292",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "14e3031bf82c36fc846a2526e18d575bb84f8ae2bffd79a0265e4a94a0f37292",
+                  "output_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "output_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "output_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "output_hash": "ed1f6d63b72bcac643db1cebafca793f4ec1cd9dc85034e06ca524b04498567f",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "ed1f6d63b72bcac643db1cebafca793f4ec1cd9dc85034e06ca524b04498567f",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1"
+              },
+              "run_identity": {
+                "determinism_key": "3c464f0bf4200e79730bb54ae28c65d5b1a979c97f71472e457d1069da1cea8c",
+                "run_id": "run_3c464f0bf4200e79",
+                "trace_id": "trace_427798ef"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_rules",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_427798ef",
+                "req_id": "req_427798ef",
+                "trace_id": "trace_427798ef"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t1",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t1: Extract the goal and constraints for the requested plan.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t2",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t2: Draft a minimal actionable plan (1–3 steps) matching constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t3",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add test/validation checkpoints and deterministic acceptance criteria.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                  "output_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "output_hash": "7634de6ad6f366e8f1f2db23f87347563f7b8e24124193b5ffbec7ee7f0a8cb4",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "7634de6ad6f366e8f1f2db23f87347563f7b8e24124193b5ffbec7ee7f0a8cb4",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "7634de6ad6f366e8f1f2db23f87347563f7b8e24124193b5ffbec7ee7f0a8cb4",
+                  "output_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "output_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "output_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "output_hash": "ed1f6d63b72bcac643db1cebafca793f4ec1cd9dc85034e06ca524b04498567f",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "ed1f6d63b72bcac643db1cebafca793f4ec1cd9dc85034e06ca524b04498567f",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1"
+              },
+              "run_identity": {
+                "determinism_key": "3c464f0bf4200e79730bb54ae28c65d5b1a979c97f71472e457d1069da1cea8c",
+                "run_id": "run_3c464f0bf4200e79",
+                "trace_id": "trace_427798ef"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_llm",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 3,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_427798ef",
+                "req_id": "req_427798ef",
+                "trace_id": "trace_427798ef"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t1",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t1: Extract the goal and constraints for the requested plan.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_plan",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t2",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_plan for t2: Draft a minimal actionable plan (1–3 steps) matching constraints.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_code",
+                    "identity": {
+                      "envelope_id": "env_427798ef",
+                      "req_id": "req_427798ef",
+                      "task_id": "t3",
+                      "trace_id": "trace_427798ef"
+                    },
+                    "output": {
+                      "payload": "Executed exec_code for t3: Add test/validation checkpoints and deterministic acceptance criteria.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                  "output_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "d1aef568e4c3e056c35ac29516f7b211d2b5e277889f792d2719aab41e41e07b",
+                  "output_hash": "b4eef72d40786e3c239c3ec60877a51488bdf4a5183add4dc5f75af1329e0118",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "b4eef72d40786e3c239c3ec60877a51488bdf4a5183add4dc5f75af1329e0118",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "b4eef72d40786e3c239c3ec60877a51488bdf4a5183add4dc5f75af1329e0118",
+                  "output_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "cf9538db5544152e0fbcf6431dc99db7d3782053e11609a90c7c52705e30ddf7",
+                  "output_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "e09f0e2c4a42479d2579aa9232b0bf85cbdb1d3659a9c27ca370ffcdc5631481",
+                  "output_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "cd2924f488b55171539965b12893796c0d7a52b3708d55b9491e1e34c3bd7b57",
+                  "output_hash": "ed1f6d63b72bcac643db1cebafca793f4ec1cd9dc85034e06ca524b04498567f",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "ed1f6d63b72bcac643db1cebafca793f4ec1cd9dc85034e06ca524b04498567f",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "359906c8af1ff65923d91ef77c2732eea465ba9253601993348fbca6047a20b1"
+              },
+              "run_identity": {
+                "determinism_key": "3c464f0bf4200e79730bb54ae28c65d5b1a979c97f71472e457d1069da1cea8c",
+                "run_id": "run_3c464f0bf4200e79",
+                "trace_id": "trace_427798ef"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "Почему падает тест?",
+      "key": "почему_падает_тест",
+      "records": [
+        {
+          "rolepack": "v1_tz",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_a9b2206f",
+                "req_id": "req_a9b2206f",
+                "trace_id": "trace_a9b2206f"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_a9b2206f",
+                      "req_id": "req_a9b2206f",
+                      "task_id": "t1",
+                      "trace_id": "trace_a9b2206f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Identify what the user is asking and required context.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_a9b2206f",
+                      "req_id": "req_a9b2206f",
+                      "task_id": "t2",
+                      "trace_id": "trace_a9b2206f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce an accurate answer grounded in the provided context/spec.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                  "output_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "output_hash": "c9f1b3de6ecbff77197a795d0a9592e8265fe579ab7abde254bc91e59bdbfb9c",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "c9f1b3de6ecbff77197a795d0a9592e8265fe579ab7abde254bc91e59bdbfb9c",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "c9f1b3de6ecbff77197a795d0a9592e8265fe579ab7abde254bc91e59bdbfb9c",
+                  "output_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "output_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "output_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "output_hash": "eeef0cbbc2d77d4a25eedb14fb0a0333ebe68c53ba19522128ccba76564d0bc2",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "eeef0cbbc2d77d4a25eedb14fb0a0333ebe68c53ba19522128ccba76564d0bc2",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0"
+              },
+              "run_identity": {
+                "determinism_key": "56092642133879e90a32aa84976b5f54253dc75a1d365587f7128c508dd1685b",
+                "run_id": "run_56092642133879e9",
+                "trace_id": "trace_a9b2206f"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_rules",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_a9b2206f",
+                "req_id": "req_a9b2206f",
+                "trace_id": "trace_a9b2206f"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_a9b2206f",
+                      "req_id": "req_a9b2206f",
+                      "task_id": "t1",
+                      "trace_id": "trace_a9b2206f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Identify what the user is asking and required context.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_a9b2206f",
+                      "req_id": "req_a9b2206f",
+                      "task_id": "t2",
+                      "trace_id": "trace_a9b2206f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce an accurate answer grounded in the provided context/spec.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                  "output_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "output_hash": "42ccc24f8d11b38ae504a64e6fd21c84467ed8bdf3ca65406b33b37a09909079",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "42ccc24f8d11b38ae504a64e6fd21c84467ed8bdf3ca65406b33b37a09909079",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "42ccc24f8d11b38ae504a64e6fd21c84467ed8bdf3ca65406b33b37a09909079",
+                  "output_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "output_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "output_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "output_hash": "eeef0cbbc2d77d4a25eedb14fb0a0333ebe68c53ba19522128ccba76564d0bc2",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "eeef0cbbc2d77d4a25eedb14fb0a0333ebe68c53ba19522128ccba76564d0bc2",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0"
+              },
+              "run_identity": {
+                "determinism_key": "56092642133879e90a32aa84976b5f54253dc75a1d365587f7128c508dd1685b",
+                "run_id": "run_56092642133879e9",
+                "trace_id": "trace_a9b2206f"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "rolepack": "v1_llm",
+          "output_schema": "final_response_artifact_v0",
+          "manifest_status": "success",
+          "output_summary_keys": [
+            "baseline_norm",
+            "stages",
+            "trace_id"
+          ],
+          "output_keys": [
+            "execution_status",
+            "identity",
+            "results",
+            "schema_version"
+          ],
+          "results_count": 2,
+          "trace_id": null,
+          "stages": [],
+          "baseline_norm": null,
+          "full": {
+            "summary": {
+              "baseline_norm": null,
+              "stages": [],
+              "trace_id": null
+            },
+            "output": {
+              "execution_status": {
+                "status": "success"
+              },
+              "identity": {
+                "envelope_id": "env_a9b2206f",
+                "req_id": "req_a9b2206f",
+                "trace_id": "trace_a9b2206f"
+              },
+              "results": [
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_a9b2206f",
+                      "req_id": "req_a9b2206f",
+                      "task_id": "t1",
+                      "trace_id": "trace_a9b2206f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t1: Identify what the user is asking and required context.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                },
+                {
+                  "task_result": {
+                    "errors": [],
+                    "execution_role": "exec_generic",
+                    "identity": {
+                      "envelope_id": "env_a9b2206f",
+                      "req_id": "req_a9b2206f",
+                      "task_id": "t2",
+                      "trace_id": "trace_a9b2206f"
+                    },
+                    "output": {
+                      "payload": "Executed exec_generic for t2: Produce an accurate answer grounded in the provided context/spec.",
+                      "type": "text"
+                    },
+                    "schema_version": "task_result_v0",
+                    "status": "success"
+                  }
+                }
+              ],
+              "schema_version": "final_response_artifact_v0"
+            },
+            "manifest": {
+              "environment": {
+                "model_id": "model_test",
+                "model_version": "model_test_v1",
+                "runtime_version": "runtime_v0",
+                "tokenizer_version": "tok_v1"
+              },
+              "execution_trace": [
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                  "output_hash": null,
+                  "role_id": "scope_resolver",
+                  "seq": 1
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                  "output_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "role_id": "scope_resolver",
+                  "seq": 2
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "output_hash": null,
+                  "role_id": "intent_interpreter",
+                  "seq": 3
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "bc49fc6b350af98e2e3101fc1532b38baacade1fd2199e27625858694a34d526",
+                  "output_hash": "f2125174333cfe88756600baa996b6fa443a290cdcbf6042a4f2b8a9c6b798b8",
+                  "role_id": "intent_interpreter",
+                  "seq": 4
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "f2125174333cfe88756600baa996b6fa443a290cdcbf6042a4f2b8a9c6b798b8",
+                  "output_hash": null,
+                  "role_id": "task_decomposer",
+                  "seq": 5
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "f2125174333cfe88756600baa996b6fa443a290cdcbf6042a4f2b8a9c6b798b8",
+                  "output_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "role_id": "task_decomposer",
+                  "seq": 6
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "output_hash": null,
+                  "role_id": "role_orchestrator",
+                  "seq": 7
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "caf05fc8c14bbb9ec09972cf345a63e417b5d2e0b8b97361e3a000669afd5bff",
+                  "output_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "role_id": "role_orchestrator",
+                  "seq": 8
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "output_hash": null,
+                  "role_id": "execution_roles",
+                  "seq": 9
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "319123f957efc318509e5488492c343029b58e80c3ffde0f91e602c28b59c03d",
+                  "output_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "role_id": "execution_roles",
+                  "seq": 10
+                },
+                {
+                  "error_code": null,
+                  "event_type": "START",
+                  "input_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "output_hash": null,
+                  "role_id": "result_assembler",
+                  "seq": 11
+                },
+                {
+                  "error_code": null,
+                  "event_type": "END",
+                  "input_hash": "dc51616a70647f9bd2dea6b43d17e1cc2a1f10e18f454519ef5feed398d9d99c",
+                  "output_hash": "eeef0cbbc2d77d4a25eedb14fb0a0333ebe68c53ba19522128ccba76564d0bc2",
+                  "role_id": "result_assembler",
+                  "seq": 12
+                }
+              ],
+              "final_outcome": {
+                "final_artifact_hash": "eeef0cbbc2d77d4a25eedb14fb0a0333ebe68c53ba19522128ccba76564d0bc2",
+                "status": "success"
+              },
+              "implementation_guidelines": {
+                "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+                "guidelines_version": "v0"
+              },
+              "inputs": {
+                "artifacts": [
+                  {
+                    "artifact_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0",
+                    "artifact_type": "request_envelope",
+                    "artifact_version": "request_envelope_v0"
+                  }
+                ],
+                "primary_input_hash": "94f20e965dd1a304498f7c1aa2c751e7bd1e8d027e43921537a3a9baeac65ec0"
+              },
+              "run_identity": {
+                "determinism_key": "56092642133879e90a32aa84976b5f54253dc75a1d365587f7128c508dd1685b",
+                "run_id": "run_56092642133879e9",
+                "trace_id": "trace_a9b2206f"
+              },
+              "runtime_policies": {
+                "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+                "policy_version": "v0"
+              },
+              "schema_version": "run_manifest_v0",
+              "specs": [
+                {
+                  "spec_hash": "dummy",
+                  "spec_name": "FRONT_MANAGER_SPEC.md",
+                  "spec_version": "v0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

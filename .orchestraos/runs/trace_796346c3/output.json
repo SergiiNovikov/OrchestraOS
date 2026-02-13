@@ -1,0 +1,44 @@
+{
+  "in": {
+    "in": {
+      "in": {
+        "in": {
+          "in": {
+            "in": {
+              "consistency": {
+                "contradictions_detected": false
+              },
+              "header": {
+                "created_at": "2026-01-30T00:00:00Z",
+                "envelope_id": "env_796346c3",
+                "mode": "platform",
+                "req_id": "req_796346c3",
+                "source": "user",
+                "trace_id": "trace_796346c3"
+              },
+              "intent": {
+                "intent": "test_intent"
+              },
+              "maturity_gate": {
+                "maturity": "IMMATURE",
+                "reason_code": "R1",
+                "recommended_next": "route"
+              },
+              "payload_isolation": {
+                "baseline_norm": "python -m apps.front_cli --text \"hello\" --profile tz_cli_default",
+                "dialogue_context_included": false
+              },
+              "schema_version": "request_envelope_v0"
+            },
+            "stage": "scope_resolver"
+          },
+          "stage": "intent_interpreter"
+        },
+        "stage": "task_decomposer"
+      },
+      "stage": "role_orchestrator"
+    },
+    "stage": "execution_roles"
+  },
+  "stage": "result_assembler"
+}

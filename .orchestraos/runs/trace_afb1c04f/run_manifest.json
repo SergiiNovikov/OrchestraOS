@@ -1,0 +1,143 @@
+{
+  "run_manifest": {
+    "environment": {
+      "model_id": "model_test",
+      "model_version": "model_test_v1",
+      "runtime_version": "runtime_v0",
+      "tokenizer_version": "tok_v1"
+    },
+    "execution_trace": [
+      {
+        "error_code": null,
+        "event_type": "START",
+        "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+        "output_hash": null,
+        "role_id": "scope_resolver",
+        "seq": 1
+      },
+      {
+        "error_code": null,
+        "event_type": "END",
+        "input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+        "output_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+        "role_id": "scope_resolver",
+        "seq": 2
+      },
+      {
+        "error_code": null,
+        "event_type": "START",
+        "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+        "output_hash": null,
+        "role_id": "intent_interpreter",
+        "seq": 3
+      },
+      {
+        "error_code": null,
+        "event_type": "END",
+        "input_hash": "afd85d015b03bba16a44b0544741dbd0c1909b102b0d92a080b80bbceed49751",
+        "output_hash": "3224a05142978d1b3832e59b9177713f45ed77a949759229f5e16f6263037894",
+        "role_id": "intent_interpreter",
+        "seq": 4
+      },
+      {
+        "error_code": null,
+        "event_type": "START",
+        "input_hash": "3224a05142978d1b3832e59b9177713f45ed77a949759229f5e16f6263037894",
+        "output_hash": null,
+        "role_id": "task_decomposer",
+        "seq": 5
+      },
+      {
+        "error_code": null,
+        "event_type": "END",
+        "input_hash": "3224a05142978d1b3832e59b9177713f45ed77a949759229f5e16f6263037894",
+        "output_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+        "role_id": "task_decomposer",
+        "seq": 6
+      },
+      {
+        "error_code": null,
+        "event_type": "START",
+        "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+        "output_hash": null,
+        "role_id": "role_orchestrator",
+        "seq": 7
+      },
+      {
+        "error_code": null,
+        "event_type": "END",
+        "input_hash": "ef9334d3abc4d1d166b22f0ef08061ef9a5383cc57857f7570268ead047d6b83",
+        "output_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+        "role_id": "role_orchestrator",
+        "seq": 8
+      },
+      {
+        "error_code": null,
+        "event_type": "START",
+        "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+        "output_hash": null,
+        "role_id": "execution_roles",
+        "seq": 9
+      },
+      {
+        "error_code": null,
+        "event_type": "END",
+        "input_hash": "b459e182965b7c4f2e662d6cbb14da7bc796d54211ccaf1a13828587fef598b3",
+        "output_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+        "role_id": "execution_roles",
+        "seq": 10
+      },
+      {
+        "error_code": null,
+        "event_type": "START",
+        "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+        "output_hash": null,
+        "role_id": "result_assembler",
+        "seq": 11
+      },
+      {
+        "error_code": null,
+        "event_type": "END",
+        "input_hash": "a58f5c5b3d67ba363eec3614aa46f3b5914df78aa30b6ecd44fe42422a6b414e",
+        "output_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+        "role_id": "result_assembler",
+        "seq": 12
+      }
+    ],
+    "final_outcome": {
+      "final_artifact_hash": "7011c8b6622d98612d7a3307627793513128ac8710d434c92b29f69cca466f61",
+      "status": "success"
+    },
+    "implementation_guidelines": {
+      "guidelines_hash": "be1ec8a4f6c6e86135048f92da808a6ecee5e0c04a82889a89f902dac43b5745",
+      "guidelines_version": "v0"
+    },
+    "inputs": {
+      "artifacts": [
+        {
+          "artifact_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a",
+          "artifact_type": "request_envelope",
+          "artifact_version": "request_envelope_v0"
+        }
+      ],
+      "primary_input_hash": "36811c6e6ca5576dc48f6ff65b3d7b9459dc13e8220f597aae8850c5b7776a3a"
+    },
+    "run_identity": {
+      "determinism_key": "feebd89127648ad87583869878b44dd28dcdb269c8230c2301a6f31f728ca0f0",
+      "run_id": "run_feebd89127648ad8",
+      "trace_id": "trace_afb1c04f"
+    },
+    "runtime_policies": {
+      "policy_hash": "3de677357170d42642cf848e6ac9f358711489fdc6c2336e302affe5515cdef6",
+      "policy_version": "v0"
+    },
+    "schema_version": "run_manifest_v0",
+    "specs": [
+      {
+        "spec_hash": "dummy",
+        "spec_name": "FRONT_MANAGER_SPEC.md",
+        "spec_version": "v0"
+      }
+    ]
+  }
+}

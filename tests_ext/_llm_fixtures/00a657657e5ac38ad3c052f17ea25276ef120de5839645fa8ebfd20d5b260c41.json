@@ -1,0 +1,13 @@
+{
+  "kind": "generic",
+  "lang": "unknown",
+  "tags": [],
+  "notes": [],
+  "raw_completion": "<paste model output here>",
+  "parsed_intent": {
+    "kind": "generic",
+    "lang": "unknown",
+    "tags": []
+  },
+  "fixture_schema_version": "fixture_schema_v1"
+}

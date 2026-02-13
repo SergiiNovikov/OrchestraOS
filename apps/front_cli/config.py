@@ -23,6 +23,10 @@ DEFAULT_PROFILE: Dict[str, Any] = {
     "model_version": "model_test_v1",
     "tokenizer_version": "tok_v1",
 
+    # Rolepack selection (policy input)
+    # Supported: "deterministic" (Milestone 0), "v1_tz" (live roles)
+    "rolepack": "deterministic",
+
     # Workdir for saving run artifacts (json files)
     "work_dir": str(REPO_ROOT / ".orchestraos"),
 
@@ -46,20 +50,26 @@ def _load_json(path: Path) -> Dict[str, Any]:
     """
     Load JSON profile.
     Empty file is allowed and treated as {} (defaults-only profile).
+    Accept UTF-8 with BOM (common on Windows).
     """
     if not path.exists():
         raise FileNotFoundError(f"Profile not found: {path}")
 
-    text = path.read_text(encoding="utf-8")
-
-    # Empty profile is allowed: rely fully on DEFAULT_PROFILE
-    if text.strip() == "":
+    raw = path.read_bytes()
+    if raw.strip() == b"":
         return {}
+
+    # Windows PowerShell can write UTF-8 with BOM; accept it.
+    try:
+        text = raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        text = raw.decode("utf-8")
 
     try:
         return json.loads(text)
     except json.JSONDecodeError as e:
         raise ValueError(f"Invalid JSON profile: {path}. Error: {e}") from e
+
 
 
 def load_profile(profile: Optional[str]) -> LoadedProfile:
@@ -78,21 +88,23 @@ def load_profile(profile: Optional[str]) -> LoadedProfile:
         if (p.is_absolute() or p.exists()) and p.suffix.lower() == ".json":
             path = p
             name = p.stem
-        elif p.is_absolute():
-            path = p
-            name = p.stem
         else:
-            filename = profile if profile.endswith(".json") else f"{profile}.json"
-            path = PROFILES_DIR / filename
-            name = Path(filename).stem
+            # treat as a profile name under PROFILES_DIR
+            if profile.endswith(".json"):
+                name = Path(profile).stem
+                path = PROFILES_DIR / profile
+            else:
+                name = profile
+                path = PROFILES_DIR / f"{profile}.json"
 
-    raw = _load_json(path)
+    data = _load_json(path)
 
-    # merge defaults → profile overrides
-    merged = dict(DEFAULT_PROFILE)
-    merged.update(raw or {})
+    if not isinstance(data, dict):
+        raise ValueError(f"Profile must be a JSON object. Got: {type(data).__name__}")
 
-    # fail-closed minimal sanity
+    merged: Dict[str, Any] = {**DEFAULT_PROFILE, **data}
+
+    # required string fields
     for k in ("created_at", "source", "mode", "maturity"):
         v = merged.get(k)
         if not isinstance(v, str) or not v.strip():
@@ -106,6 +118,10 @@ def load_profile(profile: Optional[str]) -> LoadedProfile:
             raise ValueError(
                 f"Profile field '{k}' must be a non-empty string. Got: {v!r}"
             )
+
+    rp = merged.get("rolepack")
+    if rp is not None and (not isinstance(rp, str) or not rp.strip()):
+        raise ValueError(f"Profile field 'rolepack' must be a non-empty string if provided. Got: {rp!r}")
 
     # normalize work_dir / specs_dir
     work_dir = Path(str(merged["work_dir"]))

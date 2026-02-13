@@ -1,0 +1,38 @@
+{
+  "conversation_id": "1f288abdd26147d4a85c12b2bdd07c2d",
+  "pending_question_id": null,
+  "requirement_model_v1": {
+    "assumptions": [],
+    "constraints": [
+      "Не больше двух мышей на одно окно"
+    ],
+    "goal": "хочу окна мышью открывать",
+    "last_updated_step": 4,
+    "open_questions": [],
+    "schema_version": "requirement_model_v1",
+    "scope_in": [],
+    "scope_out": [],
+    "status": "done",
+    "success_criteria": [
+      "Окно открылось",
+      "мышь не сдохла"
+    ],
+    "users": [
+      "я буду пользоваться - открывать буду окна",
+      "как не странно - мышью"
+    ]
+  },
+  "schema_version": "conversation_state_v1",
+  "spec_document_v1": {
+    "content": "# Spec v1 (Draft)\n\n## 1) Overview\n\n**Goal:** хочу окна мышью открывать\n\n## 2) Users & Context\n\n- я буду пользоваться - открывать буду окна\n- как не странно - мышью\n\n## 3) Scope\n\n### In-scope\n\n_TBD_\n\n### Out-of-scope\n\n_TBD_\n\n## 4) Success Criteria\n\n- Окно открылось\n- мышь не сдохла\n\n## 5) Constraints\n\n- Не больше двух мышей на одно окно\n\n## 6) Assumptions\n\n_TBD_\n\n## 7) Acceptance Criteria\n\n- AC1: Окно открылось\n- AC2: мышь не сдохла\n\n## 8) Definition of Done\n\n- Сформулирована цель: хочу окна мышью открывать\n- Определены пользователи/контекст (2 пункт(а/ов))\n- Зафиксированы критерии готовности (2 пункт(а/ов))\n- Зафиксированы ограничения (1 пункт(а/ов))\n- Есть список In-scope и Out-of-scope (если TBD — явно отмечено в ТЗ)\n- Есть раздел 'Open Questions' (если пусто — явно None)\n- Есть критерии приёмки (Acceptance Criteria) в проверяемом виде\n\n## 9) Open Questions\n\n_None_\n",
+    "format": "markdown",
+    "generated_from": {
+      "conversation_id": "1f288abdd26147d4a85c12b2bdd07c2d",
+      "requirement_model_version": "requirement_model_v1",
+      "source_hash": "4ecdeca655b24757965859c70cca166b36e9b3c60476093fb0f0abda35eb2a05"
+    },
+    "schema_version": "spec_document_v1",
+    "title": "хочу окна мышью открывать"
+  },
+  "step": 4
+}

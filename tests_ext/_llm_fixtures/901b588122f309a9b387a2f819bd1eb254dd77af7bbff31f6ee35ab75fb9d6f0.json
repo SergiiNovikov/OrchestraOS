@@ -1,0 +1,19 @@
+{
+  "kind": "question",
+  "lang": "ru",
+  "tags": [
+    "debugging",
+    "testing"
+  ],
+  "notes": [],
+  "raw_completion": "User is asking why a test is failing.",
+  "parsed_intent": {
+    "kind": "question",
+    "lang": "ru",
+    "tags": [
+      "debugging",
+      "testing"
+    ]
+  },
+  "fixture_schema_version": "fixture_schema_v1"
+}

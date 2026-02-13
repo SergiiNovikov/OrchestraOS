@@ -1,0 +1,40 @@
+{
+  "schema_version": "intent_package_v0",
+  "identity": {
+    "envelope_id": "env_a9b2206f",
+    "req_id": "req_a9b2206f",
+    "trace_id": "trace_a9b2206f"
+  },
+  "source_fingerprint": {
+    "baseline_norm_hash": "61f67329c27de446721030fdc159bcd974d9c063988a602c7d17dfc3e43ffd08"
+  },
+  "intent_definition": {
+    "intent_status": "RESOLVED",
+    "constraints": {
+      "allowed_contours": [
+        "text"
+      ],
+      "required_by_contract": []
+    }
+  },
+  "ambiguity_report": {
+    "ambiguous": false,
+    "ambiguity_reason": null
+  },
+  "conflict_report": {
+    "conflicts_present": false,
+    "conflict_summary": null
+  },
+  "handoff": {
+    "target_role": "task_decomposer",
+    "notes_for_downstream": [
+      "baseline_norm='Почему падает тест?'",
+      "v1_llm.provider='external'",
+      "v1_llm.kind='question'",
+      "v1_llm.lang='ru'",
+      "v1_llm.tags=['debugging', 'testing']",
+      "stable_input_key='901b588122f309a9b387a2f819bd1eb254dd77af7bbff31f6ee35ab75fb9d6f0'",
+      "canonical_intent_input_json='{\"allowed_contours\":[\"text\"],\"baseline_norm\":\"почему падает тест?\",\"baseline_norm_hash\":\"61f67329c27de446721030fdc159bcd974d9c063988a602c7d17dfc3e43ffd08\"}'"
+    ]
+  }
+}

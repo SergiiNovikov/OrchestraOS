@@ -1,0 +1,5 @@
+{
+  "work_dir": ".orchestraos",
+  "specs_dir": "specs",
+  "spec_mode": "llm"
+}

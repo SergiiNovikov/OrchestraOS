@@ -1,0 +1,59 @@
+{
+  "conversation_id": "6bccf2f4d44246a0a203e8e3589d5841",
+  "pending_question_id": null,
+  "problem_model_v1": {
+    "active_hypothesis_id": "h1",
+    "hypotheses": [
+      {
+        "confidence": 0.8500000000000001,
+        "contradictions": [],
+        "hidden_assumptions": [],
+        "id": "h1",
+        "inferred_problem": "Порекомендуй",
+        "reframed_problem": "Сформулировать и стабилизировать проблему: Порекомендуй (constraints: determinism)",
+        "uncertainty_areas": []
+      }
+    ],
+    "last_question": null,
+    "schema_version": "problem_model_v1",
+    "status": "stabilized",
+    "turn_index": 6,
+    "user_statements": [
+      {
+        "role": "user",
+        "text": "Разработка виртуального бухгалтера на основе ИИ"
+      },
+      {
+        "role": "assistant",
+        "text": "Чтобы мы считали проблему точно сформулированной: какие 2–3 критерии успеха/DoD?"
+      },
+      {
+        "role": "user",
+        "text": "стабильно правильная обработка входищих/исходящих документов, формирование реестров на оплату, формирование регулярных отчетов"
+      },
+      {
+        "role": "assistant",
+        "text": "Какие ключевые ограничения/инварианты (платформа, сети/офлайн, детерминизм, запреты на изменения)?"
+      },
+      {
+        "role": "user",
+        "text": "Порекомендуй"
+      }
+    ]
+  },
+  "requirement_model_v1": {
+    "assumptions": [],
+    "constraints": [],
+    "goal": null,
+    "last_updated_step": 0,
+    "open_questions": [],
+    "schema_version": "requirement_model_v1",
+    "scope_in": [],
+    "scope_out": [],
+    "status": "collecting",
+    "success_criteria": [],
+    "users": []
+  },
+  "schema_version": "conversation_state_v1",
+  "step": 3
+}

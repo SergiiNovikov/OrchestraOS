@@ -1,0 +1,49 @@
+{
+  "execution_status": {
+    "status": "success"
+  },
+  "identity": {
+    "envelope_id": "env_afb1c04f",
+    "req_id": "req_afb1c04f",
+    "trace_id": "trace_afb1c04f"
+  },
+  "results": [
+    {
+      "task_result": {
+        "errors": [],
+        "execution_role": "exec_generic",
+        "identity": {
+          "envelope_id": "env_afb1c04f",
+          "req_id": "req_afb1c04f",
+          "task_id": "t1",
+          "trace_id": "trace_afb1c04f"
+        },
+        "output": {
+          "payload": "Executed exec_generic for t1: Understand the request and constraints.",
+          "type": "text"
+        },
+        "schema_version": "task_result_v0",
+        "status": "success"
+      }
+    },
+    {
+      "task_result": {
+        "errors": [],
+        "execution_role": "exec_generic",
+        "identity": {
+          "envelope_id": "env_afb1c04f",
+          "req_id": "req_afb1c04f",
+          "task_id": "t2",
+          "trace_id": "trace_afb1c04f"
+        },
+        "output": {
+          "payload": "Executed exec_generic for t2: Produce the minimal useful output that satisfies the request.",
+          "type": "text"
+        },
+        "schema_version": "task_result_v0",
+        "status": "success"
+      }
+    }
+  ],
+  "schema_version": "final_response_artifact_v0"
+}

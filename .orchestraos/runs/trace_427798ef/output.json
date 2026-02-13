@@ -1,0 +1,67 @@
+{
+  "execution_status": {
+    "status": "success"
+  },
+  "identity": {
+    "envelope_id": "env_427798ef",
+    "req_id": "req_427798ef",
+    "trace_id": "trace_427798ef"
+  },
+  "results": [
+    {
+      "task_result": {
+        "errors": [],
+        "execution_role": "exec_plan",
+        "identity": {
+          "envelope_id": "env_427798ef",
+          "req_id": "req_427798ef",
+          "task_id": "t1",
+          "trace_id": "trace_427798ef"
+        },
+        "output": {
+          "payload": "Executed exec_plan for t1: Extract the goal and constraints for the requested plan.",
+          "type": "text"
+        },
+        "schema_version": "task_result_v0",
+        "status": "success"
+      }
+    },
+    {
+      "task_result": {
+        "errors": [],
+        "execution_role": "exec_plan",
+        "identity": {
+          "envelope_id": "env_427798ef",
+          "req_id": "req_427798ef",
+          "task_id": "t2",
+          "trace_id": "trace_427798ef"
+        },
+        "output": {
+          "payload": "Executed exec_plan for t2: Draft a minimal actionable plan (1–3 steps) matching constraints.",
+          "type": "text"
+        },
+        "schema_version": "task_result_v0",
+        "status": "success"
+      }
+    },
+    {
+      "task_result": {
+        "errors": [],
+        "execution_role": "exec_code",
+        "identity": {
+          "envelope_id": "env_427798ef",
+          "req_id": "req_427798ef",
+          "task_id": "t3",
+          "trace_id": "trace_427798ef"
+        },
+        "output": {
+          "payload": "Executed exec_code for t3: Add test/validation checkpoints and deterministic acceptance criteria.",
+          "type": "text"
+        },
+        "schema_version": "task_result_v0",
+        "status": "success"
+      }
+    }
+  ],
+  "schema_version": "final_response_artifact_v0"
+}
