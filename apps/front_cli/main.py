@@ -21,7 +21,6 @@ from apps.front_cli.io import print_run_output, run_repl, save_run_artifacts
 
 from extensions.conversation.state_store import create_new_state, load_state, save_state_atomic
 from extensions.conversation.clarify_policy_v1 import draft_spec_outline
-from extensions.rolepacks.v1_req.elicitor import elicitation_step
 
 # M18 Cognitive Front Manager (Problem Discovery Engine)
 from extensions.cognitive.problem_model_v1 import (
@@ -42,6 +41,27 @@ from extensions.spec_writer.spec_writer_v1 import build_spec_document_v1
 # M17 llm spec
 from extensions.architect.architect_v1 import ArchitectError, run_architect_v1
 from extensions.spec_writer.spec_writer_llm_v1 import build_spec_document_v1_llm
+
+# -------------------------
+# M19 additions (modules)
+# -------------------------
+from extensions.cognitive.cognitive_expander_v1 import CognitiveExpanderConfig, run_cognitive_expander_v1
+from extensions.extraction.requirement_extractor_v1 import RequirementExtractorConfig, run_requirement_extractor_v1
+from extensions.extraction.quality_gate_v1 import StrategicQualityGateConfig, run_quality_gate_v1
+from extensions.approval.approval_gate_v1 import ApprovalGateConfig, is_approved_v1
+
+
+def _ensure_utf8_stdio() -> None:
+    try:
+        if hasattr(sys.stdout, "reconfigure"):
+            sys.stdout.reconfigure(encoding="utf-8", errors="strict")  # type: ignore[attr-defined]
+    except Exception:
+        pass
+    try:
+        if hasattr(sys.stderr, "reconfigure"):
+            sys.stderr.reconfigure(encoding="utf-8", errors="strict")  # type: ignore[attr-defined]
+    except Exception:
+        pass
 
 
 def run_once(text: str, profile: Dict[str, Any]) -> Tuple[Any, Any, Dict[str, Any], str, Path]:
@@ -72,11 +92,29 @@ def run_once(text: str, profile: Dict[str, Any]) -> Tuple[Any, Any, Dict[str, An
 
 
 def run_text_mode(*, text: str, profile_arg: Optional[str]) -> int:
+    _ensure_utf8_stdio()
+
     try:
         prof = load_profile(profile_arg)
     except Exception as e:
         sys.stderr.write(f"[ERROR] profile load failed: {e}\n")
         return 2
+
+    try:
+        mode = _read_spec_mode(prof.data)
+    except Exception as e:
+        sys.stderr.write(f"[ERROR] {e}\n")
+        return 2
+
+    if mode == "conversation":
+        try:
+            out_text = _run_m19_text_turn(text=text, profile=prof.data)
+            sys.stdout.write(out_text + "\n")
+            sys.stdout.flush()
+            return 0
+        except Exception as e:
+            sys.stderr.write(f"[ERROR] {e}\n")
+            return 1
 
     try:
         out, err, m, trace_id, work_dir = run_once(text, prof.data)
@@ -89,20 +127,16 @@ def run_text_mode(*, text: str, profile_arg: Optional[str]) -> int:
 
 
 def run_repl_mode(*, profile_arg: Optional[str]) -> int:
+    _ensure_utf8_stdio()
     try:
         prof = load_profile(profile_arg)
     except Exception as e:
         sys.stderr.write(f"[ERROR] profile load failed: {e}\n")
         return 2
-
     return run_repl(build_and_run=lambda t: run_once(t, prof.data))
 
 
 def _read_spec_mode(profile: Dict[str, Any]) -> str:
-    """
-    ENV > profile > default.
-    Allowed: rules | llm
-    """
     env_mode = os.environ.get("ORCHESTRA_SPEC_MODE")
     if isinstance(env_mode, str) and env_mode.strip():
         mode = env_mode.strip().lower()
@@ -110,8 +144,8 @@ def _read_spec_mode(profile: Dict[str, Any]) -> str:
         v = profile.get("spec_mode", "rules")
         mode = str(v).strip().lower()
 
-    if mode not in {"rules", "llm"}:
-        raise ValueError(f"Invalid spec_mode={mode!r}. Allowed: rules, llm")
+    if mode not in {"rules", "llm", "conversation"}:
+        raise ValueError(f"Invalid spec_mode={mode!r}. Allowed: rules, llm, conversation")
     return mode
 
 
@@ -130,13 +164,6 @@ def _finalize_spec_and_persist(
     work_dir: Path,
     spec_mode: str,
 ) -> None:
-    """
-    Fail-closed:
-      - generate spec_doc
-      - set status=done
-      - atomic save (single transaction)
-    If save fails: no persisted status change.
-    """
     model = state["requirement_model_v1"]
 
     if spec_mode == "rules":
@@ -159,22 +186,217 @@ def _finalize_spec_and_persist(
         "spec_document_v1": spec_doc,
         "pending_question_id": None,
     }
-
     save_state_atomic(state2, conversation_id, work_dir)
-
-    # Update in-memory state to match persisted state (post-commit)
     state.clear()
     state.update(state2)
 
 
+# -------------------------
+# M19: active conversation pointer in work_dir
+# -------------------------
+
+def _active_conversation_id_path(work_dir: Path) -> Path:
+    return work_dir / "front_cli_active_conversation_id.txt"
+
+
+def _write_active_conversation_id_atomic(work_dir: Path, cid: str) -> None:
+    work_dir.mkdir(parents=True, exist_ok=True)
+    p = _active_conversation_id_path(work_dir)
+    tmp = p.with_suffix(p.suffix + ".tmp")
+    tmp.write_text(cid, encoding="utf-8")
+    os.replace(str(tmp), str(p))
+
+
+def _read_active_conversation_id(work_dir: Path) -> str:
+    p = _active_conversation_id_path(work_dir)
+    if not p.exists():
+        raise RuntimeError("ACTIVE CONVERSATION ID NOT SET (run --new-conversation first)")
+    cid = p.read_text(encoding="utf-8").strip()
+    if not cid:
+        raise RuntimeError("ACTIVE CONVERSATION ID EMPTY")
+    return cid
+
+
+# -------------------------
+# M19 helpers
+# -------------------------
+
+def _m19_get_turns(state: Dict[str, Any]) -> list[dict]:
+    turns = state.get("m19_turns")
+    if isinstance(turns, list):
+        out: list[dict] = []
+        for t in turns:
+            if not isinstance(t, dict):
+                continue
+            role = t.get("role")
+            text = t.get("text")
+            if role in ("user", "assistant") and isinstance(text, str):
+                out.append({"role": role, "text": text})
+        return out
+    return []
+
+
+def _m19_set_turns(state: Dict[str, Any], turns: list[dict]) -> None:
+    state["m19_turns"] = [{"role": t["role"], "text": t["text"]} for t in turns]
+
+
+def _m19_slice_turns(turns: list[dict], n: int = 8) -> list[dict]:
+    return turns[-n:]
+
+
+def _m19_generate_draft_spec(m19_req: Dict[str, Any]) -> str:
+    goals = m19_req.get("goals", []) or []
+    success = m19_req.get("success_criteria", []) or []
+    constraints = m19_req.get("constraints", []) or []
+    oq = m19_req.get("open_questions", []) or []
+
+    lines: list[str] = []
+    lines.append("# Draft Spec (M19)")
+    lines.append("")
+    lines.append("## Strategic Goal")
+    if goals:
+        for g in goals:
+            lines.append(f"- {g}")
+    else:
+        lines.append("- (not specified)")
+    lines.append("")
+    lines.append("## Success Criteria")
+    if success:
+        for s in success:
+            lines.append(f"- {s}")
+    else:
+        lines.append("- (not specified)")
+    if constraints:
+        lines.append("")
+        lines.append("## Constraints")
+        for c in constraints:
+            lines.append(f"- {c}")
+    if oq:
+        lines.append("")
+        lines.append("## Open Questions (must be resolved)")
+        for q in oq:
+            lines.append(f"- {q}")
+    lines.append("")
+    lines.append("## Approval")
+    lines.append("Reply with: approved / утверждаю / согласовано")
+    return "\n".join(lines)
+
+
+def _run_m19_text_turn(*, text: str, profile: Dict[str, Any]) -> str:
+    work_dir = Path(str(profile["work_dir"]))
+    conversation_id = _read_active_conversation_id(work_dir)
+    state = load_state(conversation_id, work_dir)
+
+    # Keep PM valid, but M19 slice must not depend on PM internal schema.
+    pm = state.get("problem_model_v1")
+    if pm is None:
+        pm = default_problem_model()
+        validate_problem_model_fail_closed(pm)
+    elif not isinstance(pm, dict):
+        raise ValueError("problem_model_v1 must be an object")
+    else:
+        validate_problem_model_fail_closed(pm)
+
+    turns = _m19_get_turns(state)
+
+    # If we are waiting for approval:
+    if state.get("m19_status") == "ready_for_spec":
+        approval_cfg = ApprovalGateConfig(approval_required=True)
+        if is_approved_v1(text, approval_cfg):
+            turns2 = turns + [{"role": "user", "text": text}]
+            state2 = {**state, "m19_status": "approved_for_spec", "approved_for_spec": True}
+            _m19_set_turns(state2, turns2)
+            save_state_atomic(state2, conversation_id, work_dir)
+            return "APPROVED. State marked as approved_for_spec."
+
+        turns2 = turns + [{"role": "user", "text": text}]
+        state2 = dict(state)
+        _m19_set_turns(state2, turns2)
+        save_state_atomic(state2, conversation_id, work_dir)
+
+        draft = state.get("m19_draft_spec_v1")
+        if not isinstance(draft, str) or not draft.strip():
+            draft = "(draft spec missing)"
+        return draft + "\n\n(Approval required: reply with approved / утверждаю / согласовано)"
+
+    # Normal turn
+    turns2 = turns + [{"role": "user", "text": text.strip()}]
+    slice_turns = _m19_slice_turns(turns2, n=8)
+
+    # Also still append into PM for continuity (but not used for slicing)
+    pm_user = pm_append_statement(pm, "user", text.strip())
+    pm_user = {**pm_user, "turn_index": int(pm_user.get("turn_index", 0)) + 1}
+
+    c_cfg = CognitiveExpanderConfig(
+        cognitive_mode="rules",
+        llm_mode="off",
+        llm_provider="stub",
+        cache_dir=str(profile.get("llm_cache_dir", ".llm_cache")),
+    )
+    c_rec = run_cognitive_expander_v1(problem_model_v1=pm_user, conversation_turns=slice_turns, cfg=c_cfg)
+    c_parsed = c_rec["parsed_output"]
+
+    r_cfg = RequirementExtractorConfig(
+        extraction_mode="rules",
+        llm_mode="off",
+        llm_provider="stub",
+        cache_dir=str(profile.get("llm_cache_dir", ".llm_cache")),
+    )
+    r_rec = run_requirement_extractor_v1(
+        problem_model_v1=pm_user,
+        cognitive_hypotheses_v1=c_parsed,
+        conversation_turns=slice_turns,
+        cfg=r_cfg,
+    )
+    m19_req = r_rec["parsed_output"]
+
+    m19_q = run_quality_gate_v1(requirement_model_v1=m19_req, cfg=StrategicQualityGateConfig())
+
+    if m19_q["needs_refinement"]:
+        nq = str(m19_q.get("next_question") or "").strip()
+        if nq:
+            turns3 = turns2 + [{"role": "assistant", "text": nq}]
+        else:
+            turns3 = turns2
+
+        # Also add assistant question into PM for continuity
+        pm_next = pm_user
+        if nq:
+            pm_next = pm_append_statement(pm_next, "assistant", nq)
+
+        state2 = {
+            **state,
+            "problem_model_v1": pm_next,
+            "m19_status": "needs_refinement",
+            "m19_cognitive_hypotheses_v1": c_parsed,
+            "m19_requirement_model_v1": m19_req,
+            "m19_quality_gate_v1": m19_q,
+            "m19_draft_spec_v1": None,
+            "approved_for_spec": False,
+        }
+        _m19_set_turns(state2, turns3)
+        save_state_atomic(state2, conversation_id, work_dir)
+        return nq or "Уточните, пожалуйста: какой проверяемый критерий успеха вы ожидаете?"
+
+    draft = _m19_generate_draft_spec(m19_req)
+    state2 = {
+        **state,
+        "problem_model_v1": pm_user,
+        "m19_status": "ready_for_spec",
+        "m19_cognitive_hypotheses_v1": c_parsed,
+        "m19_requirement_model_v1": m19_req,
+        "m19_quality_gate_v1": m19_q,
+        "m19_draft_spec_v1": draft,
+        "approved_for_spec": False,
+    }
+    _m19_set_turns(state2, turns2)
+    save_state_atomic(state2, conversation_id, work_dir)
+    return draft + "\n\n(Approval required: reply with approved / утверждаю / согласовано)"
+
+
 def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool, conversation_id: Optional[str]) -> int:
-    """
-    Milestone 18:
-      - Cognitive Layer runs FIRST to stabilize problem_model_v1
-      - Only after stabilized -> fill RequirementModel v1 (minimal extractor) -> SpecWriter (M16/M17)
-      - Fail-closed for LLM replay miss / missing provider: do not persist any state changes
-      - Atomic save: status=done only after spec_document_v1 is written in the same atomic commit
-    """
+    _ensure_utf8_stdio()
+
     if new_conversation and conversation_id is not None:
         raise ValueError("new_conversation and conversation_id are mutually exclusive")
 
@@ -185,8 +407,41 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
         return 2
 
     work_dir = Path(str(prof.data["work_dir"]))
-    spec_mode = _read_spec_mode(prof.data)
 
+    try:
+        spec_mode = _read_spec_mode(prof.data)
+    except Exception as e:
+        sys.stderr.write(f"[ERROR] {e}\n")
+        return 2
+
+    if spec_mode == "conversation":
+        try:
+            if new_conversation:
+                cid, state = create_new_state()
+                save_state_atomic(state, cid, work_dir)
+                _write_active_conversation_id_atomic(work_dir, str(cid))
+                sys.stdout.write(f"conversation_id: {cid}\n")
+                sys.stdout.flush()
+                return 0
+
+            if conversation_id is None:
+                raise ValueError("conversation_id is required")
+
+            state = load_state(str(conversation_id), work_dir)
+            save_state_atomic(state, str(conversation_id), work_dir)
+            _write_active_conversation_id_atomic(work_dir, str(conversation_id))
+            sys.stdout.write(f"conversation_id: {conversation_id}\n")
+            sys.stdout.flush()
+            return 0
+
+        except Exception as e:
+            sys.stderr.write(f"[ERROR] {e}\n")
+            return 1
+
+    # -------------------------
+    # M18 original conversation mode (unchanged)
+    # -------------------------
+    spec_mode_legacy = spec_mode
     try:
         if new_conversation:
             cid, state = create_new_state()
@@ -201,7 +456,6 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
         sys.stdout.write("OrchestraOS Conversation Mode. Ctrl-D / EOF to quit.\n")
         sys.stdout.flush()
 
-        # Fast-path: if already ready/done -> print outline + (re)generate spec per spec_mode.
         model0 = state["requirement_model_v1"]
         status0 = model0.get("status")
         if status0 in {"ready_for_spec", "done"}:
@@ -211,7 +465,7 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
                     state=state,
                     conversation_id=str(conversation_id),
                     work_dir=work_dir,
-                    spec_mode=spec_mode,
+                    spec_mode=spec_mode_legacy,
                 )
             except ArchitectError as e:
                 sys.stderr.write(f"[ERROR] {e}\n")
@@ -221,7 +475,6 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
             _print_ready_with_spec(outline=outline, spec_doc=spec_doc)
             return 0
 
-        # Ensure ProblemModel v1 exists
         pm = state.get("problem_model_v1")
         if pm is None:
             pm = default_problem_model()
@@ -233,18 +486,12 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
         else:
             validate_problem_model_fail_closed(pm)
 
-        # Main loop:
-        # - ask a question (based on hypotheses/uncertainty)
-        # - user answers
-        # - run cognitive step (rules/llm/auto), update problem model
-        # - if stabilized: extract requirements -> spec -> done (atomic)
         while True:
             pm = state.get("problem_model_v1")
             if not isinstance(pm, dict):
                 raise ValueError("problem_model_v1 missing or invalid")
             validate_problem_model_fail_closed(pm)
 
-            # If stabilized -> proceed
             if pm.get("status") == "stabilized" or stabilization_criteria(pm):
                 pm2 = {**pm, "status": "stabilized"}
                 state["problem_model_v1"] = pm2
@@ -259,7 +506,7 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
                         state=state,
                         conversation_id=str(conversation_id),
                         work_dir=work_dir,
-                        spec_mode=spec_mode,
+                        spec_mode=spec_mode_legacy,
                     )
                 except ArchitectError as e:
                     sys.stderr.write(f"[ERROR] {e}\n")
@@ -269,10 +516,8 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
                 _print_ready_with_spec(outline=outline2, spec_doc=spec_doc)
                 return 0
 
-            # Ensure we have a question to ask
             last_q = pm.get("last_question")
             if not isinstance(last_q, dict) or not isinstance(last_q.get("text"), str) or not last_q["text"].strip():
-                # Default first question (before any user statement)
                 last_q = {"id": "q1", "text": "Опиши задачу/проблему в 1–3 предложениях (цель, контекст, ограничения)."}
                 pm = {**pm, "last_question": last_q}
                 state["problem_model_v1"] = pm
@@ -292,11 +537,9 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
             if not answer:
                 continue
 
-            # Build in-memory updated pm with user statement (NOT persisted yet; fail-closed protection).
             pm_user = pm_append_statement(pm, "user", answer)
             pm_user = {**pm_user, "turn_index": int(pm_user.get("turn_index", 0)) + 1, "last_question": None}
 
-            # Select cognitive mode
             cog = read_cognitive_settings_from_env()
             try:
                 if cog.mode == "rules":
@@ -306,28 +549,23 @@ def run_conversation_mode(*, profile_arg: Optional[str], new_conversation: bool,
                 else:
                     raise ValueError(f"Invalid cognitive.mode: {cog.mode!r}")
             except CognitiveLLMError as e:
-                # Fail-closed: do not persist any changes (including user's last answer).
                 sys.stderr.write(f"[ERROR] {e}\n")
                 return 1
 
             pm_next = apply_cognitive_step(pm_user, step)
 
-            # Policy-level stabilization check
             if pm_next.get("status") == "stabilized" and not stabilization_criteria(pm_next):
                 pm_next = {**pm_next, "status": "exploring"}
 
-            # If next_question exists, append as assistant statement for context.
             nq = step.get("next_question")
             if isinstance(nq, dict) and isinstance(nq.get("text"), str) and nq["text"].strip():
                 pm_next = pm_append_statement(pm_next, "assistant", str(nq["text"]))
 
-            # Update state (now safe to persist)
             state["problem_model_v1"] = pm_next
             state["step"] = int(state.get("step", 0)) + 1
             state["pending_question_id"] = None
             save_state_atomic(state, str(conversation_id), work_dir)
 
-            # Loop will either finalize (stabilized) or ask the next question.
             continue
 
     except Exception as e:
